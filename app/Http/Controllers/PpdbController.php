@@ -83,7 +83,7 @@ class PpdbController extends Controller
     public function dashboard()
     {
         $user = User::find(Auth::user()->id);
-        $data = Ppdb::where('id', $user->id)->get();
+        $data = Ppdb::where('email', $user->email)->get();
 
         return view('dashboard')->with('data', $data);
     }
